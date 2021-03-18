@@ -44,7 +44,7 @@ import axios from "axios";
                 let apiURL = 'http://localhost:4000/api/add';
                 
                 axios.post(apiURL, this.recipe).then(() => {
-                  this.$router.push('/view')
+                  this.$router.push('/')
                   this.recipe = {
                     name: '',
                     email: '',

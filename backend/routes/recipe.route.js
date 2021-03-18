@@ -12,10 +12,20 @@ recipeRoute.route('/').get((req, res) => {
        res.json(data)
      }
    })
- })
+ });
 
- recipeRoute.route('/add').post((req, res, next) => {
+recipeRoute.route('/add').post((req, res, next) => {
     RecipeModel.create(req.body, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
+    }
+  })
+});
+
+recipeRoute.route('/show/:id').get((req, res) => {
+  RecipeModel.findById(req.params.id, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -32,7 +42,7 @@ recipeRoute.route('/edit/:id').get((req, res) => {
       res.json(data)
     }
   })
-})
+});
 
 // Update recipe
 recipeRoute.route('/update/:id').post((req, res, next) => {
@@ -46,7 +56,7 @@ recipeRoute.route('/update/:id').post((req, res, next) => {
       console.log('La recette a bien été mise à jour !')
     }
   })
-})
+});
 
 // Delete recipe
 recipeRoute.route('/delete/:id').delete((req, res, next) => {
@@ -59,6 +69,6 @@ recipeRoute.route('/delete/:id').delete((req, res, next) => {
       })
     }
   })
-})
+});
 
 module.exports = recipeRoute;

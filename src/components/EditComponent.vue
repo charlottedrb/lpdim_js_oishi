@@ -48,7 +48,7 @@ export default {
 
             axios.post(apiURL, this.recipe).then((res) => {
                 console.log(res)
-                this.$router.push('/view')
+                this.$router.push('/')
             }).catch(error => {
                 console.log(error)
             });

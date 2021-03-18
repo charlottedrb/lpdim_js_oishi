@@ -1,6 +1,6 @@
 <template>
-    <div id="card-container">
-        <RecipeCard v-for="recipe in Recipes" :key="recipe._id" :name="recipe.name" :note="recipe.note" :category="recipe.category" :image="recipe.image"></RecipeCard>
+    <div>
+        <RecipeCard v-for="recipe in Recipes" :key="recipe._id" :_id="recipe._id" :name="recipe.name" :note="recipe.note" :category="recipe.category" :image="recipe.image"></RecipeCard>
     </div>
 </template>
 

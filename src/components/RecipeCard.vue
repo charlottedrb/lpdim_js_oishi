@@ -1,4 +1,5 @@
 <template>
+<router-link :to="{name: 'show', params: { id: _id }}">
     <div class="recipe">
         <div class="recipe-infos">
             <h2>{{ name }}</h2>
@@ -13,6 +14,7 @@
             </div>
         </div>
     </div>
+</router-link>
 </template>
 
 <script>
@@ -30,9 +32,9 @@ export default {
         image : {
             default: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
         }, 
-        // object: {
-        //     required: true
-        // }
+        _id: {
+            required: true
+        }
     }, 
     data: function () {
         return {
@@ -53,6 +55,4 @@ export default {
 
 <style lang="scss">
 @import "../styles/theme.scss";
-@import "../styles/interface/_card.scss";
-@import "../styles/interface/_badges.scss";
 </style>

@@ -6,10 +6,10 @@
         <a class="navbar-brand float-left">Oishi</a>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/">Create Recipe</router-link>
+            <router-link class="nav-link pr-3" to="/add">Create Recipe</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/view">View Recipes</router-link>
+            <router-link class="nav-link" to="/">View Recipes</router-link>
           </li>
         </ul>
       </div>
