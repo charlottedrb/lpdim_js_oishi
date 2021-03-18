@@ -1,6 +1,6 @@
 <template>
-    <div class="row">
-        <RecipeCard v-for="recipe in Recipes" :key="recipe._id" :name="recipe.name" :note="recipe.note" :category="recipe.category"></RecipeCard>
+    <div id="card-container">
+        <RecipeCard v-for="recipe in Recipes" :key="recipe._id" :name="recipe.name" :note="recipe.note" :category="recipe.category" :image="recipe.image"></RecipeCard>
     </div>
 </template>
 
@@ -42,8 +42,6 @@
     }
 </script>
 
-<style>
-    .btn-success {
-        margin-right: 10px;
-    }
+<style lang="scss">
+@import "../styles/theme.scss";
 </style>

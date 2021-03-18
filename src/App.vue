@@ -1,7 +1,7 @@
 <template>
-  <div id="#app">
+  <div id="#app" style="width: 100vw;">
     <!-- Nav bar -->
-    <!-- <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
+    <nav class="navbar menu justify-content-between flex-nowrap flex-row">
       <div class="container">
         <a class="navbar-brand float-left">Oishi</a>
         <ul class="nav navbar-nav flex-row float-right">
@@ -13,15 +13,29 @@
           </li>
         </ul>
       </div>
-    </nav> -->
+    </nav>
 
     <!-- Router view -->
-    <div class="container mt-5">
+    <transition name="slide" mode="out-in">
       <router-view></router-view>
-    </div>
+    </transition>
+
   </div>
 </template>
 
 <style lang="scss">
 @import "./styles/theme.scss";
+
+$duration: 0.8s;
+
+.slide-enter-active, .slide-leave-active{
+  transition: opacity $duration, transform $duration;
+}
+
+.slide-enter, .slider-leave-to{
+  opacity: 0;
+  transform: translateX(-30%);
+}
 </style>
+
+

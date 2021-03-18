@@ -17,6 +17,8 @@
 @import 'interface/card';
 @import 'interface/tags';
 @import 'interface/new-recipe';
+@import 'interface/badges';
+@import 'interface/nav';
 
 ////////////////// STYLE GENERAL //////////////////
 
@@ -53,7 +55,8 @@ header button{
 
 body{
     display: flex;
-    justify-content: center;
+    //justify-content: center;
+    padding: 1rem 5rem;
     min-height: 100vh;
     height: 100%;
     background: $primary;
@@ -66,5 +69,7 @@ div#app{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 1rem 5rem;
+    min-width: 100vw!important;
+    height: 100vh;
+    
 }
