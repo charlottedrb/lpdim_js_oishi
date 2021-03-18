@@ -1,34 +1,12 @@
 <template>
     <div class="row">
-        <div class="col-md-12">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Note</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="recipe in Recipes" :key="recipe._id">
-                        <td>{{ recipe.name }}</td>
-                        <td>{{ recipe.email }}</td>
-                        <td>{{ recipe.note }}</td>
-                        <td>
-                            <router-link :to="{name: 'edit', params: { id: recipe._id }}" class="btn btn-success">Edit
-                            </router-link>
-                            <button @click.prevent="deleteRecipe(recipe._id)" class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <RecipeCard v-for="recipe in Recipes" :key="recipe._id" :name="recipe.name" :note="recipe.note" :category="recipe.category"></RecipeCard>
     </div>
 </template>
 
 <script>
     import axios from "axios";
+    import RecipeCard from "./RecipeCard";
 
     export default {
         data() {
@@ -43,6 +21,9 @@
             }).catch(error => {
                 console.log(error)
             });
+        },
+        components: {
+            RecipeCard            
         },
         methods: {
             deleteRecipe(id){

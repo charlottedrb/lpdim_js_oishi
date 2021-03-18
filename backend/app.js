@@ -1,7 +1,8 @@
 const express = require('express'),
   cors = require('cors'),
   mongoose = require('mongoose'),
-  database = require('./database');
+  database = require('./database'),
+  bodyParser = require('body-parser');
 
 // Connect mongoDB
 mongoose.Promise = global.Promise;
@@ -28,20 +29,20 @@ app.use(cors());
 // API
 app.use('/api', recipeAPI)
 
-// Port
+// Create port
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   console.log('Connected to port ' + port)
 })
 
-// 404
-// app.use((req, res, next) => {
-//   next(createError(404));
-// });
+// Find 404
+app.use((req, res, next) => {
+  next(createError(404));
+});
 
-// gestion d'erreur
-// app.use(function (err, req, res, next) {
-//   console.error(err.message);
-//   if (!err.statusCode) err.statusCode = 500;
-//   res.status(err.statusCode).send(err.message);
-// });
+// error handler
+app.use(function (err, req, res, next) {
+  console.error(err.message);
+  if (!err.statusCode) err.statusCode = 500;
+  res.status(err.statusCode).send(err.message);
+});

@@ -1,7 +1,7 @@
 <template>
   <div id="#app">
     <!-- Nav bar -->
-    <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
+    <!-- <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
       <div class="container">
         <a class="navbar-brand float-left">Oishi</a>
         <ul class="nav navbar-nav flex-row float-right">
@@ -13,7 +13,7 @@
           </li>
         </ul>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- Router view -->
     <div class="container mt-5">
@@ -24,5 +24,4 @@
 
 <style lang="scss">
 @import "./styles/theme.scss";
-
 </style>
