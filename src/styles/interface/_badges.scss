@@ -1,0 +1,29 @@
+//////////////////////////////////////////////////////////////////////////
+//
+//
+//             badges
+//
+//
+//////////////////////////////////////////////////////////////////////////
+
+.badge{
+    display: block;
+    width: fit-content;
+    padding: 2px 7px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+
+    &-salted{
+        background-color: $danger;
+    }
+
+    &-sweet{
+        background-color: $success;
+    }
+
+    &-dessert{
+        background-color: $warning;
+    }
+}

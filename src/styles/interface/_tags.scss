@@ -1,0 +1,42 @@
+//////////////////////////////////////////////////////////////////////////
+//
+//
+//             tags
+//
+//
+//////////////////////////////////////////////////////////////////////////
+
+.tag-input {
+    display: block;
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 0.9em;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 0 10px;
+
+    &__tag{
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+        background-color: #eee;
+        margin-top: 10px;
+        line-height: 30px;
+        padding: 0 5px;
+        border-radius: 5px;
+        color: black;
+
+        & > span{
+            cursor: pointer;
+            opacity: 0.75;
+        }
+    }
+
+    &__text{
+        border: none;
+        outline: none;
+        font-size: 0.9em;
+        line-height: 50px;
+        background: none;
+    }
+}

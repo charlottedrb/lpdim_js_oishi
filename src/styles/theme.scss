@@ -1,0 +1,70 @@
+
+//////////////////////////////////////////////////////////////////////////
+//
+//
+//				APPEL DES FICHIERS PARTIELS A COMPILER
+//				pour le css de base
+//
+//
+//////////////////////////////////////////////////////////////////////////
+
+//////////////////// VARIABLES / FONCTIONS / MIXINS / ICONES / ANIMATIONS ////////////////////
+ 
+@import 'general';
+
+////////////////// INTERFACE //////////////////
+
+@import 'interface/card';
+@import 'interface/tags';
+@import 'interface/new-recipe';
+
+////////////////// STYLE GENERAL //////////////////
+
+// @font-face {
+//     font-family: 'Arial Rounded MT Bold';
+//     src: url('../fonts/arlrdbd.ttf');
+//   }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto';
+}
+
+header{
+    width: 100%;
+    padding: 0 1rem;
+}
+
+header > * {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+}
+
+header button{
+    padding: 0.5rem;
+    color: white;
+    background-color: coral;
+    border: 1px solid white; 
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    height: 100%;
+    background: $primary;
+    background: linear-gradient(138deg, rgba($primary ,1) 0%, rgba($secondary, 1) 100%); 
+    background-repeat: no-repeat;
+    color: white;
+}
+
+div#app{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 5rem;
+}
