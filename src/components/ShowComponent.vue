@@ -3,8 +3,8 @@
         <div class="block">
             <div class="block-content">
                 <div class="infos">
-                    <div class="badge badge-primary" id="duree">Durée</div>
-                    <div class="badge badge-secondary" id="parts">Parts</div>
+                    <div class="badge badge-primary" id="duree">Time</div>
+                    <div class="badge badge-secondary" id="parts">Units</div>
                 </div>
                 <div class="block-image">
                     <img :src="recipe.image">
@@ -20,7 +20,7 @@
                     </div>
                     
                     <div class="ingredients">
-                        <h4>Ingrédients :</h4>
+                        <h4>Ingredients :</h4>
                         <ul>
                             <li>Beurre</li>
                             <li>Patate douce</li>
@@ -29,7 +29,7 @@
                         </ul>
                     </div>
                     <div class="preparation">
-                        <h4>Préparation :</h4>
+                        <h4>Preparation :</h4>
                         <ol>
                             <li></li>
                             <li></li>
