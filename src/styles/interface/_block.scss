@@ -1,0 +1,72 @@
+//////////////////////////////////////////////////////////////////////////
+//
+//
+//             block
+//
+//
+//////////////////////////////////////////////////////////////////////////
+$radius: 10px;
+
+.block{
+    $this: '.block';
+
+    width: 80vw;
+    height: 80vh;
+    background-color: $white;
+    color: $black;
+    border-radius: $radius;
+
+    &-content{
+        height: 80vh;
+        position: relative;
+        padding: 3rem;
+
+        .infos{
+            position: absolute;
+            right: 3rem;
+            top: 8rem;
+            
+            #duree, #parts{
+                display: inline-block;
+                margin-left: 0.5rem
+            }
+        }
+
+        #{$this}-image{
+            position: relative;
+            display: inline-block;
+            width: 40%;
+            height: 100%;
+            border-radius: $radius;
+            overflow: hidden;
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .category{
+                position: absolute;
+                left: 1rem;
+                bottom: 1rem
+            }
+        }
+
+        #{$this}-body{
+            position: absolute;
+            display: inline-flex;
+            flex-direction: column;
+            padding: 0 3rem;
+
+
+            #{$this}-header{
+                font-weight: bold;
+            }
+
+            .ingredients{
+                margin-top: 2rem;
+            }
+        }
+    }
+}

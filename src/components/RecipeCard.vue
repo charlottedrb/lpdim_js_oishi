@@ -1,16 +1,16 @@
 <template>
 <router-link :to="{name: 'show', params: { id: _id }}">
-    <div class="recipe">
-        <div class="recipe-infos">
+    <div class="card-recipe">
+        <div class="card-recipe-infos">
             <h2>{{ name }}</h2>
             <span v-if="category == 'salted'" class="badge badge-salted">{{ category }}</span>
             <span v-if="category == 'sweet'" class="badge badge-sweet">{{ category }}</span>
             <span v-if="category == 'dessert'" class="badge badge-dessert">{{ category }}</span>
-            <div class="recipe-image">
+            <div class="card-recipe-image">
                 <img :src="image">
             </div>
-            <div class="recipe-numbers">
-                <p class="recipe-note"><span v-bind:style="{ width: (100* note /5) + 'px'}">{{ note }}</span></p>
+            <div class="card-recipe-numbers">
+                <p class="card-recipe-note"><span v-bind:style="{ width: (100* note /5) + 'px'}">{{ note }}</span></p>
             </div>
         </div>
     </div>
