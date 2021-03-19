@@ -11,6 +11,18 @@ let recipeSchema = new Schema({
   note: {
     type: Number
   },
+  image: {
+    type: String,
+  },
+  units: {
+    type: Number
+  }, 
+  time: {
+    type: String
+  }, 
+  ingredients: {
+    type: Object
+  }
 }, {
   collection: 'recipes'
 })

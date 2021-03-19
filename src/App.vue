@@ -17,7 +17,7 @@
 
     <!-- Router view -->
     <transition name="slide" mode="out-in">
-      <router-view></router-view>
+      <router-view class="container"></router-view>
     </transition>
 
   </div>

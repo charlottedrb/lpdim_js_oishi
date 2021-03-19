@@ -11,7 +11,6 @@ $radius: 10px;
     $this: '.block';
 
     width: 80vw;
-    height: 80vh;
     background-color: $white;
     color: $black;
     border-radius: $radius;
@@ -30,7 +29,6 @@ $radius: 10px;
     }
 
     &-content{
-        height: 80vh;
         position: relative;
         padding: 3rem;
 
@@ -87,7 +85,6 @@ $radius: 10px;
         width: 7rem;
         padding: 0.5rem;
         border: none;
-        margin-top: 2rem;
         background-color: $secondary;
         color: $white;
         border-radius: $radius;

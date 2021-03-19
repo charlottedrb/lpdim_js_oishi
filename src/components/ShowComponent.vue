@@ -3,15 +3,15 @@
         <div class="block">
             <div class="block-content">
                 <div class="infos">
-                    <div class="badge badge-primary" id="duree">Time</div>
-                    <div class="badge badge-secondary" id="parts">Units</div>
+                    <div class="custom-badge custom-badge-primary" id="duree">Time</div>
+                    <div class="custom-badge custom-badge-secondary" id="parts">Units</div>
                 </div>
                 <div class="block-image">
                     <img :src="recipe.image">
                     <div class="category">
-                        <span v-if="recipe.category == 'salted'" class="badge badge-salted">{{ recipe.category }}</span>
-                        <span v-if="recipe.category == 'sweet'" class="badge badge-sweet">{{ recipe.category }}</span>
-                        <span v-if="recipe.category == 'dessert'" class="badge badge-dessert">{{ recipe.category }}</span>
+                        <span v-if="recipe.category == 'salted'" class="custom-badge custom-badge-warning">{{ recipe.category }}</span>
+                        <span v-if="recipe.category == 'sweet'" class="custom-badge custom-badge-danger">{{ recipe.category }}</span>
+                        <span v-if="recipe.category == 'dessert'" class="custom-badge custom-badge-success">{{ recipe.category }}</span>
                     </div>
                 </div>
                 <div class="block-body">

@@ -3,14 +3,14 @@
     <div class="card-recipe">
         <div class="card-recipe-infos">
             <h2>{{ name }}</h2>
-            <span v-if="category == 'salted'" class="badge badge-salted">{{ category }}</span>
-            <span v-if="category == 'sweet'" class="badge badge-sweet">{{ category }}</span>
-            <span v-if="category == 'dessert'" class="badge badge-dessert">{{ category }}</span>
+            <span v-if="category == 'salted'" class="custom-badge custom-badge-warning">{{ category }}</span>
+            <span v-if="category == 'sweet'" class="custom-badge custom-badge-danger">{{ category }}</span>
+            <span v-if="category == 'dessert'" class="custom-badge custom-badge-success">{{ category }}</span>
             <div class="card-recipe-image">
                 <img :src="image">
             </div>
             <div class="card-recipe-numbers">
-                <p class="card-recipe-note"><span v-bind:style="{ width: (100* note /5) + 'px'}">{{ note }}</span></p>
+                <p class="card-recipe-note"><span v-bind:style="{ width: (100 * note / 5 - 5) + 'px'}">{{ note }}</span></p>
             </div>
         </div>
     </div>

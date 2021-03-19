@@ -7,24 +7,29 @@
 //////////////////////////////////////////////////////////////////////////
 
 .tag-input {
+    $inputH: 38px;
+
     display: block;
-    width: 100%;
-    border: 1px solid #eee;
-    font-size: 0.9em;
-    height: 50px;
     box-sizing: border-box;
+    width: 100%;
+    height: $inputH;
     padding: 0 10px;
+    font-size: 0.9em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
 
     &__tag{
-        height: 30px;
+        $tagH : 20px;
+
         float: left;
-        margin-right: 10px;
-        background-color: #eee;
+        height: $tagH;
         margin-top: 10px;
-        line-height: 30px;
+        margin-right: 10px;
         padding: 0 5px;
-        border-radius: 5px;
         color: black;
+        background-color: #eee;
+        line-height: $tagH;
+        border-radius: 5px;
 
         & > span{
             cursor: pointer;
@@ -33,10 +38,10 @@
     }
 
     &__text{
+        background: none;
         border: none;
         outline: none;
         font-size: 0.9em;
-        line-height: 50px;
-        background: none;
+        line-height: $inputH;
     }
 }
