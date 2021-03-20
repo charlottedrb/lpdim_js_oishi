@@ -30,12 +30,9 @@
                     </div>
                     <div class="preparation">
                         <h4>Preparation :</h4>
-                        <ol>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ol>
+                        <ul class="mt-3" style="padding-left: 0;">
+                            <li v-for="(step, index) in recipe.steps" :key="index" style="list-style-type: none;">{{ step.step }}. {{ step.description }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>

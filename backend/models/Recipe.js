@@ -22,6 +22,9 @@ let recipeSchema = new Schema({
   }, 
   ingredients: {
     type: Array
+  }, 
+  steps: {
+    type: Array
   }
 }, {
   collection: 'recipes'

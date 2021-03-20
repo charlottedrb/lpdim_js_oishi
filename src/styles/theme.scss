@@ -82,3 +82,15 @@ div#app{
 .custom-text-tertiary{
     color: $tertiary;
 }
+
+.custom-btn-primary{
+    width: 2rem;
+    background-color: $primary;
+    color: $white;
+}
+
+.custom-btn-tertiary{
+    width: 2rem;
+    background-color: $tertiary;
+    color: $white;
+}
