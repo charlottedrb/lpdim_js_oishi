@@ -2,25 +2,6 @@
   <div class="d-flex justify-content-center mt-3">
     <div class="block">
       <div class="block-content">
-        <div class="infos">
-          <div class="custom-badge custom-badge-primary" id="time">Time</div>
-          <div
-            id="time-value"
-            class="custom-badge custom-badge-primary-outline"
-          >
-            {{ recipe.time }}
-          </div>
-
-          <div class="custom-badge custom-badge-secondary" id="units">
-            Units
-          </div>
-          <div
-            id="units-value"
-            class="custom-badge custom-badge-secondary-outline"
-          >
-            {{ recipe.units }}
-          </div>
-        </div>
         <div class="block-image">
           <img :src="recipe.image" />
           <div class="category">
@@ -46,8 +27,27 @@
             <h2>{{ recipe.name }}</h2>
           </div>
 
+          <div class="infos">
+            <div class="custom-badge custom-badge-primary" id="time">Durée</div>
+            <div
+              id="time-value"
+              class="custom-badge custom-badge-primary-outline"
+            >
+              {{ recipe.time }}
+            </div>
+
+            <div class="custom-badge custom-badge-secondary" id="units">
+              Parts
+            </div>
+            <div
+              id="units-value"
+              class="custom-badge custom-badge-secondary-outline"
+            >
+              {{ recipe.units }}
+            </div>
+          </div>
           <div class="ingredients">
-            <h4>Ingredients :</h4>
+            <h4>Ingrédients :</h4>
             <ul>
               <li
                 v-for="(ingredient, index) in recipe.ingredients"
@@ -61,14 +61,15 @@
             </ul>
           </div>
           <div class="preparation">
-            <h4>Preparation :</h4>
+            <h4>Préparation :</h4>
             <ul class="mt-3" style="padding-left: 0">
               <li
                 v-for="(step, index) in recipe.steps"
                 :key="index"
                 style="list-style-type: none"
               >
-                {{ step.step }}. {{ step.description }}
+                <span class="custom-text-tertiary">{{ step.step }}.</span>
+                {{ step.description }}
               </li>
             </ul>
           </div>
