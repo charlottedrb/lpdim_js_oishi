@@ -49,9 +49,9 @@
                         <label>Ingredients</label>
                         <span class="text-muted ml-2">Press Enter or , to add your tag. Then press Delete or click the cross to remove one.</span>
                         <div class='tag-input'>
-                            <div v-for='(quantity, ingredient) in recipe.ingredients' :key='ingredient' class='tag-input__tag'>
-                                <span @click='removeTag(ingredient)'>x</span>
-                                {{ ingredient }}
+                            <div v-for='(tag, index) in currentIngredients' :key='index' class='tag-input__tag'>
+                                <span @click='removeTag(index)'>x</span>
+                                {{ tag.name }}
                             </div>
                             <input type='text' placeholder="New ingredient.." class='tag-input__text'
                                 @keydown.enter='addTag'
@@ -61,10 +61,11 @@
                     </div>
 
                     <div class="form-group quantities">
-                        <label class="d-block">Quantities</label>
-                        <div class="mb-2 d-inline-block" v-for="(quantity, ingredient) in recipe.ingredients" :key='ingredient'>
-                            {{ ingredient }}
-                            <input type="text" class="form-control form-control-sm w-50" :value="quantity" placeholder="200g, 20ml.." required>
+                        <label class="d-block">Quantities</label>   
+                        <div class="mb-2 d-inline-block" v-for="(ingredient, index) in currentIngredients" :key='index'>
+                            {{ ingredient.name }}
+                            <input type="text" class="form-control form-control-sm w-50" @input="updateQuantity(index, $event.target.value)" :value="ingredient.quantity" placeholder="200g, 20ml.." required>
+                            {{ currentIngredients[index] }}
                         </div>
                     </div>
 
@@ -91,12 +92,16 @@ import axios from "axios";
                     image: 'https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80',
                     units: '', 
                     time: '', 
-                    ingredients: {
-                        butter: '200g',
-                        flour: '100g'
-                    }
+                    ingredients: [
+                        { name: "butter", quantity: "200g" },
+                        { name: "flour", quantity: "100g" }
+                    ]
                 }, 
                 selectedCategory: "sweet",
+                currentIngredients: [
+                    { name: "butter", quantity: "200g" },
+                    { name: "flour", quantity: "100g" }
+                ],
                 categories: [
                     { name: "Sweet", value: "sweet" }, 
                     { name: "Salted", value: "salted"}, 
@@ -112,26 +117,33 @@ import axios from "axios";
                 var tag = event.target.value
                 if (tag.length > 0) {
                     tag = tag.replace(' ', '-')
-                    this.$set(this.recipe.ingredients, tag, "");
+                    this.currentIngredients.push({name: tag, quantity: 'none'})
+                    //this.$set(this.recipe.ingredients, tag, "");
+                    event.target.value = ''
                 }
-                event.target.value = ''
             }, 
-            removeTag: function(ingredient){
-                this.$delete(this.recipe.ingredients, ingredient)
+            removeTag: function(index){
+                this.currentIngredients.splice(index, 1)
+                //this.$delete(this.recipe.ingredients, ingredient)
             }, 
             removeLastTag: function(event) {
                 if (event.target.value.length === 0) {
-                    this.removeTag(this.recipe.ingredients.length - 1)
+                    this.removeTag(this.currentIngredients.length - 1)
                 }
             }, 
             handleSubmitForm() { 
                 let apiURL = 'http://localhost:4000/api/add';
+                this.recipe.ingredients = this.currentIngredients
+                this.recipe.category = this.selectedCategory
                 console.log(this.recipe)
                 axios.post(apiURL, this.recipe).then(() => {
                   this.$router.push('/')
                 }).catch(error => {
                     console.log(error)
                 });
+            }, 
+            updateQuantity($event, value) {
+                this.$set(this.currentIngredients[$event], 'quantity', value)
             }
         }
     }

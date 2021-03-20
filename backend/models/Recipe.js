@@ -21,7 +21,7 @@ let recipeSchema = new Schema({
     type: String
   }, 
   ingredients: {
-    type: Object
+    type: Array
   }
 }, {
   collection: 'recipes'

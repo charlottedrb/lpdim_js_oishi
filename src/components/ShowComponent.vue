@@ -3,8 +3,11 @@
         <div class="block">
             <div class="block-content">
                 <div class="infos">
-                    <div class="custom-badge custom-badge-primary" id="duree">Time</div>
-                    <div class="custom-badge custom-badge-secondary" id="parts">Units</div>
+                    <div class="custom-badge custom-badge-primary" id="time">Time</div>
+                    <div id="time-value" class="custom-badge custom-badge-primary-outline">{{ recipe.time }}</div>
+
+                    <div class="custom-badge custom-badge-secondary" id="units">Units</div>
+                    <div id="units-value" class="custom-badge custom-badge-secondary-outline">{{ recipe.units }}</div>
                 </div>
                 <div class="block-image">
                     <img :src="recipe.image">
@@ -22,10 +25,7 @@
                     <div class="ingredients">
                         <h4>Ingredients :</h4>
                         <ul>
-                            <li>Beurre</li>
-                            <li>Patate douce</li>
-                            <li>Creme</li>
-                            <li>Sel</li>
+                            <li v-for="(ingredient, index) in recipe.ingredients" :key="index">{{ ingredient.name }} - <span class="custom-text-tertiary">{{ ingredient.quantity }}</span></li>
                         </ul>
                     </div>
                     <div class="preparation">

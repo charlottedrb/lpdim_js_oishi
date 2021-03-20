@@ -30,6 +30,12 @@
     &-primary{
         background-color: $primary;
         border: 2px solid $primary;
+
+        &-outline{
+            background-color: $white;
+            border: 2px solid $primary;
+            color: $primary;
+        }
     }
     
     &-secondary{

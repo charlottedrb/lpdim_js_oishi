@@ -6,14 +6,17 @@
 //
 //////////////////////////////////////////////////////////////////////////
 $radius: 10px;
+$blockH: 80vh;
 
 .block{
     $this: '.block';
 
     width: 80vw;
+    height: $blockH;
     background-color: $white;
     color: $black;
     border-radius: $radius;
+    overflow-y: scroll;
 
     &-title{
         padding: 1rem;
@@ -31,15 +34,35 @@ $radius: 10px;
     &-content{
         position: relative;
         padding: 3rem;
+        height: $blockH;
 
         .infos{
             position: absolute;
             right: 3rem;
             top: 8rem;
             
-            #duree, #parts{
+            #time, #units{
                 display: inline-block;
-                margin-left: 0.5rem
+                position: relative;
+                margin-left: 0.5rem;
+                margin-right: 3.5rem;
+                z-index: 1;
+            }
+
+            #time-value, #units-value{
+                display: inline-block;
+                position: absolute;
+                width: 6rem;
+                text-align: right;
+            }
+
+            #time-value{
+                left: 0.8rem;
+            }
+
+            #units-value{
+                width: 5rem;
+                left: 8rem;
             }
         }
 
@@ -77,6 +100,8 @@ $radius: 10px;
 
             .ingredients{
                 margin-top: 2rem;
+
+                
             }
         }
     }
@@ -88,5 +113,6 @@ $radius: 10px;
         background-color: $secondary;
         color: $white;
         border-radius: $radius;
+        margin-bottom: 2rem;
     }
 }
