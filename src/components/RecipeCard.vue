@@ -4,18 +4,28 @@
       <div class="card-recipe-infos">
         <h2>{{ name }}</h2>
         <span
-          v-if="category == 'salted'"
+          v-if="category == 'salé'"
           class="custom-badge custom-badge-warning"
           >{{ category }}</span
         >
         <span
-          v-if="category == 'sweet'"
+          v-if="category == 'sucré'"
           class="custom-badge custom-badge-danger"
           >{{ category }}</span
         >
         <span
           v-if="category == 'dessert'"
           class="custom-badge custom-badge-success"
+          >{{ category }}</span
+        >
+        <span
+          v-if="category == 'plat'"
+          class="custom-badge custom-badge-info"
+          >{{ category }}</span
+        >
+        <span
+          v-if="category == 'entrée'"
+          class="custom-badge custom-badge-pink"
           >{{ category }}</span
         >
         <div class="card-recipe-image">

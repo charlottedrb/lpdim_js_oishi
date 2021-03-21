@@ -183,12 +183,13 @@ export default {
   data() {
     return {
       recipe: {},
-      selectedCategory: "sweet",
+      selectedCategory: "sucré",
       categories: [
-        { name: "Sweet", value: "sweet" },
-        { name: "Salted", value: "salted" },
+        { name: "Sucré", value: "sucré" },
+        { name: "Salé", value: "salé" },
         { name: "Dessert", value: "dessert" },
-        { name: "Fried", value: "fried" },
+        { name: "Plat", value: "plat" },
+        { name: "Entrée", value: "entrée" },
       ],
     };
   },
@@ -202,6 +203,7 @@ export default {
   methods: {
     handleUpdateForm() {
       let apiURL = `http://localhost:4000/api/update/${this.$route.params.id}`;
+      this.recipe.category = this.selectedCategory;
 
       axios
         .post(apiURL, this.recipe)

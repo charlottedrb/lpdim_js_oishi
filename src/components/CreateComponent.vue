@@ -194,7 +194,6 @@ export default {
         ingredients: [],
         steps: [],
       },
-      selectedCategory: "sweet",
       currentIngredients: [
         { name: "butter", quantity: "200g" },
         { name: "flour", quantity: "100g" },
@@ -203,11 +202,13 @@ export default {
         { step: 1, description: "Melt the butter." },
         { step: 2, description: "Mix with the flour." },
       ],
+      selectedCategory: "sucré",
       categories: [
-        { name: "Sweet", value: "sweet" },
-        { name: "Salted", value: "salted" },
+        { name: "Sucré", value: "sucré" },
+        { name: "Salé", value: "salé" },
         { name: "Dessert", value: "dessert" },
-        { name: "Fried", value: "fried" },
+        { name: "Plat", value: "plat" },
+        { name: "Entrée", value: "entrée" },
       ],
     };
   },

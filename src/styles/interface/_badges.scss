@@ -27,6 +27,14 @@
         background-color: $warning;
     }
 
+    &-info{
+        background-color: $info;
+    }
+
+    &-pink{
+        background-color: $pink;
+    }
+
     &-primary{
         background-color: $primary;
         border: 2px solid $primary;
