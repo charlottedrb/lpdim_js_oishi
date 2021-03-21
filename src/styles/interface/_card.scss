@@ -73,6 +73,11 @@ $radius: 10px;
         #{$this}-numbers {
             position: absolute;
             bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: baseline;
+            width: 13rem;
         }
     }
 }

@@ -34,16 +34,6 @@ recipeRoute.route('/show/:id').get((req, res) => {
   })
 });
 
-recipeRoute.route('/edit/:id').get((req, res) => {
-   RecipeModel.findById(req.params.id, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
-    }
-  })
-});
-
 // Update recipe
 recipeRoute.route('/update/:id').post((req, res, next) => {
   RecipeModel.findByIdAndUpdate(req.params.id, {

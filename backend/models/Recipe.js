@@ -20,12 +20,15 @@ let recipeSchema = new Schema({
   time: {
     type: String
   }, 
+  likes: {
+    type: Number
+  },
   ingredients: {
     type: Array
   }, 
   steps: {
     type: Array
-  }
+  }, 
 }, {
   collection: 'recipes'
 })

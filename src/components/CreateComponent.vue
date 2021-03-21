@@ -2,13 +2,13 @@
   <div class="d-flex justify-content-center mt-3">
     <div class="block">
       <div class="block-title">
-        <h3 class="text-center">Create recipe</h3>
+        <h3 class="text-center">Créer une recette</h3>
       </div>
       <div class="block-content">
         <form @submit.prevent="handleSubmitForm">
           <div class="form-row">
             <div class="col-6">
-              <label>Name</label>
+              <label>Nom</label>
               <input
                 type="text"
                 class="form-control"
@@ -17,7 +17,7 @@
               />
             </div>
             <div class="col-6">
-              <label>Category</label>
+              <label>Catégorie</label>
               <select
                 class="form-control"
                 name="category"
@@ -36,10 +36,10 @@
           </div>
 
           <div class="form-group mt-3">
-            <label>Ingredients</label>
+            <label>Ingrédients</label>
             <span class="text-muted ml-2"
-              >Press Enter or , to add your tag. Then press Delete or click the
-              cross to remove one.</span
+              >Appuyer sur Enter ou , pour ajouter un ingrédient. Pour en
+              enlever un, appuyer sur la croix ou Delete.</span
             >
             <div class="tag-input">
               <div
@@ -62,7 +62,7 @@
           </div>
 
           <div class="form-group form-light">
-            <label class="d-block">Quantities</label>
+            <label class="d-block">Quantités</label>
             <div
               class="mb-2 d-inline-block"
               v-for="(ingredient, index) in currentIngredients"
@@ -100,7 +100,7 @@
               <div class="form-group">
                 <label
                   ><span class="custom-badge custom-badge-primary"
-                    >Time</span
+                    >Durée</span
                   ></label
                 >
                 <input
@@ -115,7 +115,7 @@
               <div class="form-group">
                 <label
                   ><span class="custom-badge custom-badge-secondary"
-                    >Units</span
+                    >Parts</span
                   ></label
                 >
                 <input
@@ -129,12 +129,12 @@
           </div>
 
           <div class="form-group">
-            <label>Image URL</label>
+            <label>URL de l'image</label>
             <input class="form-control" type="text" v-model="recipe.image" />
           </div>
 
           <div class="form-group form-light">
-            <label>Steps</label>
+            <label>Etapes</label>
             <div
               class="form-inline mb-2"
               v-for="(step, index) in currentSteps"
@@ -168,7 +168,7 @@
           </div>
 
           <div class="text-right">
-            <button type="submit" class="block-btn">Create</button>
+            <button type="submit" class="block-btn">Créer</button>
           </div>
         </form>
       </div>
@@ -190,6 +190,7 @@ export default {
           "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
         units: "",
         time: "",
+        likes: "",
         ingredients: [],
         steps: [],
       },

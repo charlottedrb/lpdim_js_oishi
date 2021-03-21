@@ -23,10 +23,19 @@
           </div>
         </div>
         <div class="block-body">
-          <div class="block-header">
+          <div
+            class="block-header d-flex justify-content-between align-items-center"
+          >
             <h2>{{ recipe.name }}</h2>
+            <div>
+              <span class="mr-2">{{ recipe.likes }} </span
+              ><font-awesome-icon
+                :icon="['fas', 'thumbs-up']"
+                @click="addLike"
+                class="like"
+              />
+            </div>
           </div>
-
           <div class="infos">
             <div class="custom-badge custom-badge-primary" id="time">Durée</div>
             <div
@@ -89,16 +98,32 @@ export default {
     };
   },
   created() {
-    let apiURL = `http://localhost:4000/api/edit/${this.$route.params.id}`;
+    let apiURL = `http://localhost:4000/api/show/${this.$route.params.id}`;
 
     axios.get(apiURL).then((res) => {
       this.recipe = res.data;
       console.log("done");
     });
   },
+  methods: {
+    addLike: function () {
+      let apiURL = `http://localhost:4000/api/update/${this.$route.params.id}`;
+      this.$set(this.recipe, this.recipe.likes, this.recipe.likes++);
+
+      axios.post(apiURL, this.recipe).then((res) => {
+        console.log(res);
+        //this.$router.push("/");
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 @import "../styles/theme.scss";
+
+.like {
+  color: #ff6767;
+  font-size: 1.5rem;
+}
 </style>

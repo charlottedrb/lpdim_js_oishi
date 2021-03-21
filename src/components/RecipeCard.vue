@@ -27,6 +27,11 @@
               note
             }}</span>
           </p>
+          <span title="Éditer">
+            <router-link :to="{ name: 'edit', params: { id: _id } }"
+              ><font-awesome-icon :icon="['fas', 'pen']" class="edit"
+            /></router-link>
+          </span>
         </div>
       </div>
     </div>
@@ -54,23 +59,18 @@ export default {
     },
   },
   data: function () {
-    return {
-      recipeName: "Crumble",
-      recipeNote: 4,
-      recipeCategory: "None",
-      recipeImage:
-        "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
-      recipeObject: {
-        name: "Crumble",
-        note: 3,
-        category: this.recipeCategory,
-      },
-      displayModal: false,
-    };
+    return {};
   },
 };
 </script>
 
 <style lang="scss">
 @import "../styles/theme.scss";
+.block {
+  overflow-y: visible;
+}
+
+.edit {
+  color: $primary;
+}
 </style>
