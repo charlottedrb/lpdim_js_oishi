@@ -18,7 +18,11 @@ $radius: 10px;
     width: $recipeW; 
     height: $recipeH;
     padding: 1rem;
-    color: black;
+
+    a{
+        color: black;
+        text-decoration: none;
+    }
     
 
     &-infos{
@@ -48,10 +52,42 @@ $radius: 10px;
                 object-fit: cover;
             }
         }
-    
+    }
+
+    #{$this}-note{
+        $height: 35px;
+
+        display: inline-block;
+        border-radius: 10px;
+        border: 3px solid $secondary;
+        width: 100px;
+        height: $height - 5px;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        color: $white;
+
+        span{
+            display: inline-block;
+            background-color: $secondary;
+            text-align: center;
+            border-radius: 6px;
+            height: $height - 10px;
+        }
+    }
+
+    &-numbers {
+        position: absolute;
+        bottom: 0;
+        width: 15.2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: baseline;
+        padding: 0 1rem;
+
         #{$this}-note{
             $height: 35px;
-
+    
             display: inline-block;
             border-radius: 10px;
             border: 3px solid $secondary;
@@ -68,16 +104,6 @@ $radius: 10px;
                 border-radius: 6px;
                 height: $height - 10px;
             }
-        }
-    
-        #{$this}-numbers {
-            position: absolute;
-            bottom: 0;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            align-items: baseline;
-            width: 13rem;
         }
     }
 }
