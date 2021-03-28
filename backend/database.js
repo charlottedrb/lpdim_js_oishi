@@ -1,3 +1,3 @@
 module.exports = {
-    db: 'mongodb://localhost:27017/recipes'
+    db: 'mongodb+srv://chdrb:budnVrUMFb1nyJZ5@cluster0.kfvkt.mongodb.net/recipes'
  }

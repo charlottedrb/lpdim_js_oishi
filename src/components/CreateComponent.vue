@@ -90,6 +90,7 @@
                 >
                 <input
                   type="number"
+                  step=0.1
                   class="form-control"
                   v-model="recipe.note"
                   required
@@ -195,8 +196,8 @@ export default {
         steps: [],
       },
       currentIngredients: [
-        { name: "butter", quantity: "200g" },
-        { name: "flour", quantity: "100g" },
+        { name: "beurre", quantity: "200g" },
+        { name: "farine", quantity: "100g" },
       ],
       currentSteps: [
         { step: 1, description: "Melt the butter." },

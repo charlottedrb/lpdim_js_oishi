@@ -2,7 +2,8 @@ const express = require('express'),
   cors = require('cors'),
   mongoose = require('mongoose'),
   database = require('./database'),
-  bodyParser = require('body-parser');
+  createError = require('http-errors');
+
 
 // Connect mongoDB
 mongoose.Promise = global.Promise;
@@ -36,9 +37,9 @@ const server = app.listen(port, () => {
 })
 
 // Find 404
-app.use((req, res, next) => {
-  next(createError(404));
-});
+// app.use((req, res, next) => {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function (err, req, res, next) {

@@ -61,6 +61,7 @@ $blockH: 80vh;
             position: absolute;
             display: inline-flex;
             flex-direction: column;
+            min-width: 37.5rem;
             height: 67vh;
             padding: 0 3rem;
             overflow-y: scroll;
