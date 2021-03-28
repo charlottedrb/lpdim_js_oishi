@@ -91,6 +91,7 @@
                 <input
                   type="number"
                   class="form-control"
+                  step="0.1"
                   v-model="recipe.note"
                   required
                 />
@@ -144,7 +145,7 @@
               <input
                 type="text"
                 class="form-control form-control-sm mr-3"
-                @input="updateSteps(index, $event.target.value)"
+                @input="updateSteps(index, $event)"
                 :value="step.description"
                 placeholder="Mix the ingredients.."
                 style="width: 80%"
@@ -215,6 +216,44 @@ export default {
           console.log(error);
         });
     },
+    addTag: function (event) {
+      event.preventDefault();
+      // trim deletes extra whitespaces at the beginning and the end of the string
+      var tag = event.target.value;
+      if (tag.length > 0) {
+        tag = tag.replace(" ", "-");
+        this.recipe.ingredients.push({ name: tag, description: "none" });
+        event.target.value = "";
+      }
+    },
+    removeTag: function (index) {
+      this.recipe.ingredients.splice(index, 1);
+    },
+    removeLastTag: function (event) {
+      if (event.target.value.length === 0) {
+        this.removeTag(this.recipe.ingredients.length - 1);
+      }
+    },
+    addStep(index, $event) {
+      $event.preventDefault();
+      this.recipe.steps.push({ step: index + 2, description: "" });
+    },
+    removeStep(index, $event) {
+      $event.preventDefault()
+      let toChange = this.recipe.steps.slice(index + 1)
+      toChange.forEach((el) => {
+        el.step--;
+      });
+      //this.recipe.steps.splice(index + 1, 1);
+      //console.log(this.recipe.steps)
+      this.$delete(this.recipe.steps, index)
+    },
+    updateSteps(index, $event) {
+      this.$set(this.recipe.steps[index], "description", $event.target.value);
+    },
+    updateQuantity(index, value) {
+      this.$set(this.recipe.ingredients[index], "quantity", value);
+    }
   },
 };
 </script>
