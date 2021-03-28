@@ -98,7 +98,7 @@ export default {
     };
   },
   created() {
-    let apiURL = `http://localhost:4000/api/show/${this.$route.params.id}`;
+    let apiURL = `https://oishi-recipes.herokuapp.com/api/show/${this.$route.params.id}`;
 
     axios.get(apiURL).then((res) => {
       this.recipe = res.data;
@@ -107,7 +107,7 @@ export default {
   },
   methods: {
     addLike: function () {
-      let apiURL = `http://localhost:4000/api/update/${this.$route.params.id}`;
+      let apiURL = `https://oishi-recipes.herokuapp.com/api/update/${this.$route.params.id}`;
       this.$set(this.recipe, this.recipe.likes, this.recipe.likes++);
 
       axios.post(apiURL, this.recipe).then((res) => {
