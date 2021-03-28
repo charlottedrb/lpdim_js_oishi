@@ -7,11 +7,11 @@
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/add"
-              >Create Recipe</router-link
+              >Ajouter une recette</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/">View Recipes</router-link>
+            <router-link class="nav-link" to="/">Toutes les recettes</router-link>
           </li>
         </ul>
       </div>
