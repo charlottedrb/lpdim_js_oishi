@@ -79,6 +79,10 @@ div#app{
     color: $secondary;
 }
 
+.custom-text-secondary{
+    color: $secondary;
+}
+
 .custom-text-tertiary{
     color: $tertiary;
 }
@@ -86,6 +90,12 @@ div#app{
 .custom-btn-primary{
     width: 2rem;
     background-color: $primary;
+    color: $white;
+}
+
+.custom-btn-secondary{
+    width: 2rem;
+    background-color: $secondary;
     color: $white;
 }
 

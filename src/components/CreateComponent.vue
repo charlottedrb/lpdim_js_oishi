@@ -90,7 +90,7 @@
                 >
                 <input
                   type="number"
-                  step=0.1
+                  step="0.1"
                   class="form-control"
                   v-model="recipe.note"
                   required
@@ -152,7 +152,7 @@
                 required
               />
               <button
-                class="btn btn-sm custom-btn-tertiary mr-2"
+                class="btn btn-sm custom-btn-secondary mr-2"
                 @click="addStep(index, $event)"
                 v-if="index != 0 && index == currentSteps.length - 1"
               >
@@ -200,8 +200,8 @@ export default {
         { name: "farine", quantity: "100g" },
       ],
       currentSteps: [
-        { step: 1, description: "Melt the butter." },
-        { step: 2, description: "Mix with the flour." },
+        { step: 1, description: "Faire fondre le beurre." },
+        { step: 2, description: "Mélanger avec la farine." },
       ],
       selectedCategory: "sucré",
       categories: [
@@ -282,7 +282,7 @@ export default {
   box-shadow: 5px 5px 10px #eee;
 
   label {
-    color: $tertiary;
+    color: $secondary;
   }
 }
 </style>

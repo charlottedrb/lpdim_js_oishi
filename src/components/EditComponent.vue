@@ -152,7 +152,7 @@
                 required
               />
               <button
-                class="btn btn-sm custom-btn-tertiary mr-2"
+                class="btn btn-sm custom-btn-secondary mr-2"
                 @click="addStep(index, $event)"
                 v-if="index != 0 && index == recipe.steps.length - 1"
               >
@@ -237,21 +237,21 @@ export default {
       this.recipe.steps.push({ step: index + 2, description: "" });
     },
     removeStep(index, $event) {
-      $event.preventDefault()
-      let toChange = this.recipe.steps.slice(index + 1)
+      $event.preventDefault();
+      let toChange = this.recipe.steps.slice(index + 1);
       toChange.forEach((el) => {
         el.step--;
       });
       //this.recipe.steps.splice(index + 1, 1);
       //console.log(this.recipe.steps)
-      this.$delete(this.recipe.steps, index)
+      this.$delete(this.recipe.steps, index);
     },
     updateSteps(index, value) {
       this.$set(this.recipe.steps[index], "description", value);
     },
     updateQuantity(index, value) {
       this.$set(this.recipe.ingredients[index], "quantity", value);
-    }
+    },
   },
 };
 </script>
@@ -267,7 +267,7 @@ export default {
   box-shadow: 5px 5px 10px #eee;
 
   label {
-    color: $tertiary;
+    color: $secondary;
   }
 }
 </style>
