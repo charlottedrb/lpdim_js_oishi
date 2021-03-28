@@ -200,8 +200,8 @@ export default {
         { name: "farine", quantity: "100g" },
       ],
       currentSteps: [
-        { step: 1, description: "Melt the butter." },
-        { step: 2, description: "Mix with the flour." },
+        { step: 1, description: "Faire fondre le beurre." },
+        { step: 2, description: "Mélanger avec la farine." },
       ],
       selectedCategory: "sucré",
       categories: [
