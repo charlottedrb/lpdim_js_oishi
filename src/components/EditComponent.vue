@@ -251,6 +251,9 @@ export default {
     updateSteps(index, $event) {
       this.$set(this.recipe.steps[index], "description", $event.target.value);
     },
+    updateQuantity(index, value) {
+      this.$set(this.recipe.steps[index], "quantity", value);
+    }
   },
 };
 </script>
