@@ -3,7 +3,7 @@
     <!-- Nav bar -->
     <nav class="navbar menu justify-content-between flex-nowrap flex-row">
       <div class="container">
-        <a class="navbar-brand float-left">Oishi</a>
+        <a class="navbar-brand float-left" href="oishi.derbagh.fr">Oishi</a>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/add"

@@ -91,6 +91,7 @@
                 <input
                   type="number"
                   step="0.1"
+                  max="5"
                   class="form-control"
                   v-model="recipe.note"
                   required
