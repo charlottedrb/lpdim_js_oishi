@@ -23,7 +23,7 @@ export default {
     };
   },
   created() {
-    let apiURL = "http://localhost:4000/api";
+    let apiURL = "https://oishi-recipes.herokuapp.com/api";
     axios
       .get(apiURL)
       .then((res) => {
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     deleteRecipe(id) {
-      let apiURL = `http://localhost:4000/api/delete/${id}`;
+      let apiURL = `https://oishi-recipes.herokuapp.com/api/delete/${id}`;
       let indexOfArrayItem = this.Recipes.findIndex((i) => i._id === id);
 
       if (window.confirm("Do you really want to delete?")) {

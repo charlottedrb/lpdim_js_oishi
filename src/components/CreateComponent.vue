@@ -235,7 +235,7 @@ export default {
       }
     },
     handleSubmitForm() {
-      let apiURL = "http://localhost:4000/api/add";
+      let apiURL = "https://oishi-recipes.herokuapp.com/api/add";
       this.recipe.ingredients = this.currentIngredients;
       this.recipe.category = this.selectedCategory;
       this.recipe.steps = this.currentSteps;
