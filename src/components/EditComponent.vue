@@ -145,7 +145,7 @@
               <input
                 type="text"
                 class="form-control form-control-sm mr-3"
-                @input="updateSteps(index, $event)"
+                @input="updateSteps(index, $event.target.value)"
                 :value="step.description"
                 placeholder="Mix the ingredients.."
                 style="width: 80%"
