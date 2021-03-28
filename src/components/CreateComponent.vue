@@ -90,7 +90,7 @@
                 >
                 <input
                   type="number"
-                  step=0.1
+                  step="0.1"
                   class="form-control"
                   v-model="recipe.note"
                   required

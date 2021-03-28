@@ -18,7 +18,7 @@ mongoose.connect(database.db, {
   }
 )
 
-const recipeAPI = require('../backend/routes/recipe.route')
+const recipeAPI = require('./routes/recipe.route')
 const app = express();
 
 app.use(express.json());
