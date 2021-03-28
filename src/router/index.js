@@ -24,6 +24,11 @@ const routes = [
     name: "show",
     component: () => import("../components/ShowComponent"),
   },
+  {
+    path: "/delete/:id",
+    name: "delete",
+    component: () => import("../components/ListComponent"),
+  },
 ];
 
 const router = new VueRouter({

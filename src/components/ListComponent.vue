@@ -36,23 +36,6 @@ export default {
   components: {
     RecipeCard,
   },
-  methods: {
-    deleteRecipe(id) {
-      let apiURL = `https://oishi-recipes.herokuapp.com/api/delete/${id}`;
-      let indexOfArrayItem = this.Recipes.findIndex((i) => i._id === id);
-
-      if (window.confirm("Do you really want to delete?")) {
-        axios
-          .delete(apiURL)
-          .then(() => {
-            this.Recipes.splice(indexOfArrayItem, 1);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    },
-  },
 };
 </script>
 

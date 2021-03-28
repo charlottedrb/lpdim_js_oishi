@@ -1,6 +1,6 @@
 <template>
-  <router-link :to="{ name: 'show', params: { id: _id } }">
-    <div class="card-recipe">
+  <div class="card-recipe">
+    <router-link :to="{ name: 'show', params: { id: _id } }">
       <div class="card-recipe-infos">
         <h2>{{ name }}</h2>
         <span
@@ -31,24 +31,29 @@
         <div class="card-recipe-image">
           <img :src="image" />
         </div>
-        <div class="card-recipe-numbers">
-          <p class="card-recipe-note">
-            <span v-bind:style="{ width: (100 * note) / 5 - 5 + 'px' }">{{
-              note
-            }}</span>
-          </p>
-          <span title="Éditer">
-            <router-link :to="{ name: 'edit', params: { id: _id } }"
-              ><font-awesome-icon :icon="['fas', 'pen']" class="edit"
-            /></router-link>
-          </span>
-        </div>
       </div>
+    </router-link>
+    <div class="card-recipe-numbers">
+      <p class="card-recipe-note">
+        <span v-bind:style="{ width: (100 * note) / 5 - 5 + 'px' }">{{
+          note
+        }}</span>
+      </p>
+      <span title="Éditer">
+        <router-link :to="{ name: 'edit', params: { id: _id } }"
+          ><font-awesome-icon :icon="['fas', 'pen']" class="edit"
+        /></router-link>
+      </span>
+      <span id="deleteIcon" title="Supprimer" @click="deleteRecipe(_id)">
+        <font-awesome-icon :icon="['fas', 'trash']" class="delete" />
+      </span>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   props: {
     name: {
@@ -68,8 +73,39 @@ export default {
       required: true,
     },
   },
-  data: function () {
-    return {};
+  data() {
+    return {
+      Recipes: [],
+    };
+  },
+  created() {
+    let apiURL = "https://oishi-recipes.herokuapp.com/api";
+    axios
+      .get(apiURL)
+      .then((res) => {
+        this.Recipes = res.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  methods: {
+    deleteRecipe(id) {
+      let apiURL = `https://oishi-recipes.herokuapp.com/api/delete/${id}`;
+      let indexOfArrayItem = this.Recipes.findIndex((i) => i._id === id);
+
+      if (window.confirm("Do you really want to delete?")) {
+        axios
+          .delete(apiURL)
+          .then(() => {
+            this.Recipes.splice(indexOfArrayItem, 1);
+            location.reload();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
   },
 };
 </script>
@@ -82,5 +118,14 @@ export default {
 
 .edit {
   color: $primary;
+}
+
+#deleteIcon {
+  z-index: 3;
+  cursor: pointer;
+
+  .delete {
+    color: $tertiary;
+  }
 }
 </style>
