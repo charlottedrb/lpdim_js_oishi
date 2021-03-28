@@ -63,7 +63,7 @@
                 :key="index"
               >
                 {{ ingredient.name }} -
-                <span class="custom-text-tertiary">{{
+                <span class="custom-text-secondary">{{
                   ingredient.quantity
                 }}</span>
               </li>
@@ -77,7 +77,7 @@
                 :key="index"
                 style="list-style-type: none"
               >
-                <span class="custom-text-tertiary">{{ step.step }}.</span>
+                <span class="custom-text-secondary">{{ step.step }}.</span>
                 {{ step.description }}
               </li>
             </ul>
@@ -123,7 +123,7 @@ export default {
 @import "../styles/theme.scss";
 
 .like {
-  color: #ff6767;
+  color: $tertiary;
   font-size: 1.5rem;
 }
 </style>
