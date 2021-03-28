@@ -151,7 +151,7 @@
                 required
               />
               <button
-                class="btn btn-sm custom-btn-tertiary mr-2"
+                class="btn btn-sm custom-btn-secondary mr-2"
                 @click="addStep(index, $event)"
                 v-if="index != 0 && index == currentSteps.length - 1"
               >
@@ -281,7 +281,7 @@ export default {
   box-shadow: 5px 5px 10px #eee;
 
   label {
-    color: $tertiary;
+    color: $secondary;
   }
 }
 </style>
