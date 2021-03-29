@@ -25,6 +25,8 @@ Finalement vous voulez garder votre recette secrète ? 😈 Vous pouvez la suppr
 
 http://oishi.derbagh.fr/
 
+(le site peut-être un peu long à charger)
+
 ## Project setup
 ```
 npm install
