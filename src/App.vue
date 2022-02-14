@@ -11,9 +11,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/"
-              >Toutes les recettes</router-link
-            >
+            <router-link class="nav-link" to="/">Toutes les recettes</router-link>
           </li>
         </ul>
       </div>
