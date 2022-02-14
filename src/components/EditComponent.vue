@@ -22,7 +22,7 @@
                 class="form-control"
                 name="category"
                 id="category"
-                v-model="selectedCategory"
+                v-model="recipe.category"
               >
                 <option
                   v-for="category in categories"
@@ -90,8 +90,9 @@
                 >
                 <input
                   type="number"
-                  class="form-control"
                   step="0.1"
+                  max="5"
+                  class="form-control"
                   v-model="recipe.note"
                   required
                 />
@@ -145,7 +146,7 @@
               <input
                 type="text"
                 class="form-control form-control-sm mr-3"
-                @input="updateSteps(index, $event)"
+                @input="updateSteps(index, $event.target.value)"
                 :value="step.description"
                 placeholder="Mix the ingredients.."
                 style="width: 80%"
@@ -184,7 +185,6 @@ export default {
   data() {
     return {
       recipe: {},
-      selectedCategory: "sucré",
       categories: [
         { name: "Sucré", value: "sucré" },
         { name: "Salé", value: "salé" },
@@ -195,7 +195,7 @@ export default {
     };
   },
   created() {
-    let apiURL = `http://localhost:4000/api/show/${this.$route.params.id}`;
+    let apiURL = `https://oishi-recipes.herokuapp.com/api/show/${this.$route.params.id}`;
 
     axios.get(apiURL).then((res) => {
       this.recipe = res.data;
@@ -203,8 +203,7 @@ export default {
   },
   methods: {
     handleUpdateForm() {
-      let apiURL = `http://localhost:4000/api/update/${this.$route.params.id}`;
-      this.recipe.category = this.selectedCategory;
+      let apiURL = `https://oishi-recipes.herokuapp.com/api/update/${this.$route.params.id}`;
 
       axios
         .post(apiURL, this.recipe)
@@ -239,21 +238,21 @@ export default {
       this.recipe.steps.push({ step: index + 2, description: "" });
     },
     removeStep(index, $event) {
-      $event.preventDefault()
-      let toChange = this.recipe.steps.slice(index + 1)
+      $event.preventDefault();
+      let toChange = this.recipe.steps.slice(index + 1);
       toChange.forEach((el) => {
         el.step--;
       });
       //this.recipe.steps.splice(index + 1, 1);
       //console.log(this.recipe.steps)
-      this.$delete(this.recipe.steps, index)
+      this.$delete(this.recipe.steps, index);
     },
-    updateSteps(index, $event) {
-      this.$set(this.recipe.steps[index], "description", $event.target.value);
+    updateSteps(index, value) {
+      this.$set(this.recipe.steps[index], "description", value);
     },
     updateQuantity(index, value) {
       this.$set(this.recipe.ingredients[index], "quantity", value);
-    }
+    },
   },
 };
 </script>

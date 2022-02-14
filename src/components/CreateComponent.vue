@@ -90,6 +90,8 @@
                 >
                 <input
                   type="number"
+                  step="0.1"
+                  max="5"
                   class="form-control"
                   v-model="recipe.note"
                   required
@@ -195,8 +197,8 @@ export default {
         steps: [],
       },
       currentIngredients: [
-        { name: "butter", quantity: "200g" },
-        { name: "flour", quantity: "100g" },
+        { name: "beurre", quantity: "200g" },
+        { name: "farine", quantity: "100g" },
       ],
       currentSteps: [
         { step: 1, description: "Faire fondre le beurre." },
@@ -234,7 +236,7 @@ export default {
       }
     },
     handleSubmitForm() {
-      let apiURL = "http://localhost:4000/api/add";
+      let apiURL = "https://oishi-recipes.herokuapp.com/api/add";
       this.recipe.ingredients = this.currentIngredients;
       this.recipe.category = this.selectedCategory;
       this.recipe.steps = this.currentSteps;

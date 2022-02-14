@@ -2,7 +2,8 @@ const express = require('express'),
   cors = require('cors'),
   mongoose = require('mongoose'),
   database = require('./database'),
-  bodyParser = require('body-parser');
+  createError = require('http-errors');
+
 
 // Connect mongoDB
 mongoose.Promise = global.Promise;
@@ -17,7 +18,7 @@ mongoose.connect(database.db, {
   }
 )
 
-const recipeAPI = require('../backend/routes/recipe.route')
+const recipeAPI = require('./routes/recipe.route')
 const app = express();
 
 app.use(express.json());
@@ -36,12 +37,15 @@ const server = app.listen(port, () => {
 })
 
 // Find 404
-app.use((req, res, next) => {
-  next(createError(404));
-});
+// app.use((req, res, next) => {
+//   next(createError(404));
+// });
 
 // error handler
 app.use(function (err, req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'DELETE, PUT');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   console.error(err.message);
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message);
